@@ -1,6 +1,7 @@
-.container {
-    margin: 0 auto;
-    padding: 10px 20px;
-    width: 500px;
-    border: solid #777b77 5px;
+
+.my-container {
+    margin-bottom: 10px;
+}
+.my-form-control{
+    margin-bottom: 10px;
 }
