@@ -19,7 +19,7 @@ import java.io.IOException;
  */
 
 //urlPatterns ne veririkse o bize o bize user-details.jsp-nin response-nu qaytarir
-@WebServlet(name = "UserDetailController", urlPatterns = {"/user-detail"})
+@WebServlet(name = "UserDetailController", urlPatterns = {"/userdata"})
 public class UserDetailController extends HttpServlet {
 
     private final UserDaoInter userDao = Context.instanceUserDao();
@@ -28,18 +28,23 @@ public class UserDetailController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
+        String action = request.getParameter("action");
+        if (action.equals("upd")) {
+            String name = request.getParameter("name");
+            String surname = request.getParameter("surname");
 
-        System.out.println("name=" + name);
-        System.out.println("surname=" + surname);
+            System.out.println("name=" + name);
+            System.out.println("surname=" + surname);
 
-        User user = userDao.getById(id);
-        user.setName(name);
-        user.setSurname(surname);
+            User user = userDao.getById(id);
+            user.setName(name);
+            user.setSurname(surname);
 
-        userDao.updateUser(user);
-
+            userDao.updateUser(user);
+        } else if (action.equals("dlt")) {
+            userDao.removeUser(id);
+        }
+        //after update stay at users.jsp
         response.sendRedirect("users");
     }
 
@@ -62,7 +67,7 @@ public class UserDetailController extends HttpServlet {
             request.getRequestDispatcher("user-detail.jsp").forward(request, response);
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.sendRedirect("error?msg="+ex.getMessage());
+            response.sendRedirect("error?msg=" + ex.getMessage());
         }
 
     }

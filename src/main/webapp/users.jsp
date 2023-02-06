@@ -13,11 +13,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
-    <link rel="stylesheet" href="../../../src/test/main.java/webapp/asset/css/users.css">
+    <title>Users</title>
+    <link rel="stylesheet" href="asset/css/users.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script type="text/javascript" async="" src="../asset/js/fontawesome.js/asset/js/fontawesome.js"></script>
+
 
 </head>
 <body>
@@ -61,6 +61,7 @@
                 <th>surname</th>
                 <th>nationality</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -74,27 +75,30 @@
                 </td>
                 <td><%=u.getNationality().getName() == null ? "N/A" : u.getNationality().getName()%>
                 </td>
-                <td>
-
-                        <button class="btn btn-danger" id="btn_dlt" type="submit" name="action" value="delete">
+                <td style="width: 5px">
+                    <form action="userdata" method="POST">
+                        <input type="hidden" name="id" value="<%=u.getId()%>">
+                        <input type="hidden" name="action" value="dlt">
+                        <button class="btn btn-danger" type="submit" value="delete">
                             <i class="fa-solid fa-trash"></i>
                         </button>
-
-
-                    <form action="user-detail" method="GET">
+                    </form>
+                </td>
+                <td style="width: 5px">
+                    <form action="userdata" method="GET">
                         <input type="hidden" name="id" value="<%=u.getId()%>">
-                        <button class="btn btn-success" id="btn_upd" type="submit" name="action" value="update">
+                        <input type="hidden" name="action" value="upd">
+                        <button class="btn btn-success" type="submit" value="update">
                             <i class="fa-solid fa-square-pen"></i>
                         </button>
                     </form>
-
                 </td>
             </tr>
             <%}%>
             </tbody>
         </table>
     </div>
-
 </div>
+<script type="text/javascript" async="" src="asset/js/fontawesome.js"></script>
 </body>
 </html>
