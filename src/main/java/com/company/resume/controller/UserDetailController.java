@@ -29,7 +29,8 @@ public class UserDetailController extends HttpServlet {
             throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String action = request.getParameter("action");
-        if (action.equals("upd")) {
+
+        if (action.equals("Update")) {
             String name = request.getParameter("name");
             String surname = request.getParameter("surname");
 
@@ -41,7 +42,7 @@ public class UserDetailController extends HttpServlet {
             user.setSurname(surname);
 
             userDao.updateUser(user);
-        } else if (action.equals("dlt")) {
+        } else if (action.equals("delete")) {
             userDao.removeUser(id);
         }
         //after update stay at users.jsp

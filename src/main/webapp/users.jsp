@@ -78,7 +78,7 @@
                 <td style="width: 5px">
                     <form action="userdata" method="POST">
                         <input type="hidden" name="id" value="<%=u.getId()%>">
-                        <input type="hidden" name="action" value="dlt">
+                        <input type="hidden" name="action" value="delete">
                         <button class="btn btn-danger" type="submit" value="delete">
                             <i class="fa-solid fa-trash"></i>
                         </button>
@@ -87,7 +87,7 @@
                 <td style="width: 5px">
                     <form action="userdata" method="GET">
                         <input type="hidden" name="id" value="<%=u.getId()%>">
-                        <input type="hidden" name="action" value="upd">
+                        <input type="hidden" name="action" value="update">
                         <button class="btn btn-success" type="submit" value="update">
                             <i class="fa-solid fa-square-pen"></i>
                         </button>
