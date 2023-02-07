@@ -76,13 +76,13 @@
                 <td><%=u.getNationality().getName() == null ? "N/A" : u.getNationality().getName()%>
                 </td>
                 <td style="width: 5px">
-                    <form action="userdata" method="POST">
-                        <input type="hidden" name="id" value="<%=u.getId()%>">
-                        <input type="hidden" name="action" value="delete">
-                        <button class="btn btn-danger" type="submit" value="delete">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </form>
+                    <input type="hidden" name="id" value="<%=u.getId()%>">
+                    <input type="hidden" name="action" value="delete">
+                    <button class="btn btn-danger" type="submit" value="delete"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            onclick="setIdForDelete(<%=u.getId()%>)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
                 </td>
                 <td style="width: 5px">
                     <form action="userdata" method="GET">
@@ -99,6 +99,39 @@
         </table>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure?
+            </div>
+            <div class="modal-footer">
+                <form action="userdata" method="POST">
+                    <input type="hidden" name="id" value="" id="idForDelete">
+                    <input type="hidden" name="action" value="delete">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+
 <script type="text/javascript" async="" src="asset/js/fontawesome.js"></script>
+<script type="text/javascript" async="" src="asset/js/users.js"></script>
 </body>
 </html>
