@@ -14,7 +14,7 @@ public class JspFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) {
         HttpServletResponse res = (HttpServletResponse) response;
         try {
-            res.sendRedirect("error.jsp?msg=not found");
+            res.sendRedirect("error?msg=not found");
         } catch (IOException e) {
             e.printStackTrace();
         }

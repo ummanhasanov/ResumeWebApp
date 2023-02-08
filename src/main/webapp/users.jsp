@@ -21,6 +21,13 @@
 
 </head>
 <body>
+
+<%
+    User user = (User) session.getAttribute("loggedInUser");
+%>
+
+<%="Welcome," + user.getName()%>
+
 <%
     UserDaoInter userDao = Context.instanceUserDao();
 
@@ -38,13 +45,14 @@
     <div class="row">
         <div class="col-4">
             <form method="GET" action="users.jsp">
-                <%--@declare id="name"--%>
-                <%--@declare id="surname"--%>
-                <div class="form-group my-form-control ">
+
+                <div class="form-group my-form-control">
+                    <%--@declare id="name"--%>
                     <label for="name"> name: </label>
                     <input class="form-control" placeholder="enter name" type="text" name="name" value="">
                 </div>
                 <div class="form-group my-form-control">
+                    <%--@declare id="surname"--%>
                     <label for="surname"> surname: </label>
                     <input class="form-control" placeholder="enter surname" type="text" name="surname" value="">
                     <input type="hidden" name="id" value="">
