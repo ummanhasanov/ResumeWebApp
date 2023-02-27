@@ -30,7 +30,7 @@ public class UserDetailController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String action = request.getParameter("action");
 
-        if (action.equals("Update")) {
+        if (action.equals("update")) {
             String name = request.getParameter("name");
             String surname = request.getParameter("surname");
 

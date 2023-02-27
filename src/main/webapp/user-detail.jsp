@@ -21,7 +21,7 @@
         <%--@declare id="name"--%>
         <%--@declare id="surname"--%>
         <input type="hidden" name="id" value="<%=u.getId()%>">
-
+        <input type="hidden" name="action" value="update">
         <label for="name"> name: </label>
         <input type="text" name="name" value="<%=u.getName()%>">
         <br>

@@ -14,7 +14,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Users</title>
-    <link rel="stylesheet" href="asset/css/users.css">
+    <link rel="stylesheet" href="assets/css/users.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -27,7 +27,10 @@
 %>
 
 <%="Welcome," + user.getName()%>
-
+<form action="login" method="POST">
+    <input type="submit" name="logout" value="logout">
+    <input type="hidden" name="action" value="logout">
+</form>
 <%
     UserDaoInter userDao = Context.instanceUserDao();
 
@@ -44,7 +47,7 @@
 <div class="container my-container">
     <div class="row">
         <div class="col-4">
-            <form method="GET" action="users.jsp">
+            <form method="GET" action="users">
 
                 <div class="form-group my-form-control">
                     <%--@declare id="name"--%>
@@ -57,6 +60,7 @@
                     <input class="form-control" placeholder="enter surname" type="text" name="surname" value="">
                     <input type="hidden" name="id" value="">
                 </div>
+
                 <input class="btn btn-primary" type="submit" name="search" value="Search">
             </form>
         </div>
@@ -139,7 +143,7 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
 
-<script type="text/javascript" async="" src="asset/js/fontawesome.js"></script>
-<script type="text/javascript" async="" src="asset/js/users.js"></script>
+<script type="text/javascript" async="" src="assets/js/fontawesome.js"></script>
+<script type="text/javascript" async="" src="assets/js/users.js"></script>
 </body>
 </html>
